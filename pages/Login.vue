@@ -1,12 +1,12 @@
 <template>
-<div id="login">
+<div>
     <h1>Login:</h1>
     <form method="post">
         <input type="text" placeholder="User name" v-model="username" id="name"><br>
 
         <input type="password" placeholder="Password" v-model="password" id="password"><br>
 
-        <button type="submit" @click="login">submit</button>
+        <button type="submit" @click="login"><NuxtLink to="bucket">submit</NuxtLink></button>
     </form>
 </div>
 </template>
@@ -25,7 +25,7 @@ export default{
             let result=await axios.get(
                 `http://localhost:3000/users?username=${this.username}&password=${this.password}`
             );
-            if(result.status==200&& result.data.length>0){
+            if(result.status==200 && result.data.length>0){
                 this.$router.push({name:"bucket"})
             }
             else{

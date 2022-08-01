@@ -1,6 +1,10 @@
 {
     "users": [
-        {"username":"arnab","password":"arnab123"}
+        {"username":"arnab","password":"arnab123"},
+        {"username":"vikas","password":"vikas23"},
+        {"username":"hayat","password":"hayat@345"},
+        {"username":"amit","password":"amit123"},
+        {"username":"vaibav","password":"vaibhav123"}
     ]   
     
   }

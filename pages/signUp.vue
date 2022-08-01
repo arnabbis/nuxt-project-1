@@ -1,6 +1,6 @@
 <template>
 <div id="login">
-    <h1>LOGIN:</h1>
+    <h1>SignUp:</h1>
     <form method="post" @submit="signUp">
         <input type="text" placeholder="User name" v-model="username" id="name"><br>
 

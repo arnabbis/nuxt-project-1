@@ -1,32 +1,45 @@
 <template>
     <div>
-        <Navbar />
+        <nav class="flex items-center justify-between flex-wrap bg-blue-700 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <span class="font-semibold text-xl tracking-tight">Welcome!!</span>
+    </div>
+        <div>
+        <a href="#" class="flex justify-endinline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"><nuxt-link to="Login">Logout</nuxt-link></a>
+        </div>
+    </nav>
         <div class="">
-            <h6 class="text-center text-lg bg-gray-700 text-gray-100 mx-32 rounded-lg mb-5">Please choose items to your bucket</h6>
-            <div class="flex flex-row ">
-                <div class="basis-1/4 bg-red-400">
-                    <div>{{ apple.name }}</div>
-                    <div>{{ apple.count }}</div>
-                    <div><button v-on:click="add">+</button><button v-on:click="remove">-</button></div>
+            <h6 align="center">Please choose items to your bucket</h6>
+            <div class="grid grid-cols-3 gap-5 mt-14">
+                <div class="p-6 max-w-sm bg-red-800 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <div class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">{{ apple.name }}</div>
+                    <div class="flex flex-1 justify-center p-9 text-4xl">{{ apple.count }}</div>
+                    <div class="flex flex-1 justify-center"><button v-on:click="add" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">+</button><button v-on:click="remove" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">-</button></div>
                 </div>
-                <div class="basis-1/4 bg-orange-500 h-80">
-                    <div>{{ orange.name }}</div>
-                    <div>{{ orange.count }}</div>
-                    <div><button v-on:click="add1">+</button><button v-on:click="remove1">-</button></div>
+                <div class="p-6 max-w-sm bg-yellow-800 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <div class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">{{ orange.name }}</div>
+                    <div class="flex flex-1 justify-center p-9 text-4xl">{{ orange.count }}</div>
+                    <div class="flex flex-1 justify-center"><button @click="add1" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">+</button><button v-on:click="remove1" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">-</button></div>
                 </div>
-                <div class="basis-1/4 bg-blue-200">
-                    <div>{{ grapes.name }}</div>
-                    <div>{{ grapes.count }}</div>
-                    <div><button v-on:click="add2" class="rounded-full">+</button><button
-                            v-on:click="remove2">-</button></div>
+                <div class="p-6 max-w-sm bg-blue-800 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <div class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">{{ grapes.name }}</div>
+                    <div class="flex flex-1 justify-center p-9 text-4xl">{{ grapes.count }}</div>
+                    <div class="flex flex-1 justify-center"><button v-on:click="add2" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">+</button><button
+                            v-on:click="remove2" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">-</button></div>
                 </div>
             </div>
         </div>
         <div class="m-8">
             <div>
-                <h4>Basket stack</h4>
+                <h4 align="center"><b><u>Basket stack</u></b></h4>
             </div>
-            <div>{{ basket.join(",") }}</div><br />
+            <div>
+                <center>
+            <table class="w-64  items-center justify-center"><tr class="border-solid border-2 border-indigo-600 w-10" v-for="(basket, index) in basket" :key="index">
+            <td>{{basket}}</td>
+            </tr></table>
+            </center>
+            </div>
         </div>
     </div>
 </template>

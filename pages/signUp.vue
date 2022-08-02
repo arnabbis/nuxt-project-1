@@ -1,12 +1,12 @@
 <template>
 <div>
     <h1>SignUp:</h1>
-    <form method="post" @submit="signUp">
+    <form method="post">
         <input type="text" placeholder="User name" v-model="username" id="name"><br>
 
         <input type="password" placeholder="Password" v-model="password" id="password"><br>
 
-        <button type="submit" @click="signUp">submit</button>
+        <button type="submit" @click="signUp"><NuxtLink to="Login">Submit</NuxtLink></button>
     </form>
 </div>
 </template>

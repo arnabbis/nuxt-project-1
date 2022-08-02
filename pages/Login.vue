@@ -1,73 +1,52 @@
 <template>
-<div>
-    <h1>Login:</h1>
-    <form method="post">
-        <input type="text" placeholder="User name" v-model="username" id="name"><br>
-
-        <input type="password" placeholder="Password" v-model="password" id="password"><br>
-
-        <button type="submit" @click="login"><NuxtLink to="bucket">submit</NuxtLink></button>
-    </form>
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="px-8 py-6 mt-4 text-left bg-gray-400 shadow-lg">
+        <p class="text-2xl font-bold m-5 ">
+            Login
+        </p>
+        <div>
+            <input v-model="username" type="text" placeholder="User Name" class="text-sm text-gray-base w-full
+                                mr-3 py-5 px-4 h-2 border
+                                border-gray-200 rounded mb-2" />
+            <input v-model="password" type="password" placeholder="Password" class="text-sm text-gray-base w-full mr-3
+                                py-5 px-4 h-2 border border-gray-200
+                                rounded mb-2" />
+            <div class="flex justify-center border-black">
+                <!-- <NaxtLink v-on:click="login()"
+                        class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                        type="button"
+                        >
+                        Submit -->
+                <button @click="login" class="shadow bg-grey-700 hover:bg-grey-1000 focus:shadow-outline focus:outline-none text-black border-black font-bold py-2 px-4 rounded">Submit</button>
+            </div>
+        </div>
+    </div>
 </div>
 </template>
+
 <script>
 import axios from "axios"
-export default{
-    name:"login",
-    data(){
-        return{
-            username:"",
-            password:""
+export default {
+    name: "login",
+    data() {
+        return {
+            username: "",
+            password: ""
         }
     },
-    methods:{
-        async login(){
-            let result=await axios.get(
+    methods: {
+        async login() {
+            let result = await axios.get(
                 `http://localhost:3000/users?username=${this.username}&password=${this.password}`
             );
-            if(result.status==200 && result.data.length>0){
-                this.$router.push({name:"bucket"})
-            }
-            else{
+            if (result.status == 200 && result.data.length > 0) {
+                this.$router.push({
+                    name: "bucket"
+                })
+            } else {
                 alert("please enter correct username and password")
             }
-            //console.log(result)
-            }
-            // console.log(this.email,this.password)
+        }
     }
 }
 </script>
-<style scoped>
-div {
-    text-align: center;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0px;
-    background-color: grey;
-    /* margin: 20; */
-    /* padding: 45pc; */
-}
-
-input[type=text],
-input[type=password] {
-    background-color: rgb(197, 193, 193);
-    width: 20%;
-    padding: 12px 20px;
-    border-radius: 4px;
-    margin: 8px 2px;
-    display: inline-block;
-    border: 1px solid rgb(17, 17, 17);
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #afb4b2;
-    color: white;
-    padding: 14px;
-    margin: 2px;
-    border: 1px solid rgb(17, 17, 17);
-    cursor: pointer;
-    width: 20%;
-
-}
-</style>

@@ -1,128 +1,35 @@
 <template>
     <div>
-        <nav class="flex items-center justify-between flex-wrap bg-blue-700 p-6">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <span class="font-semibold text-xl tracking-tight">Welcome!!</span>
-        </div>
-        <div>
-            <NuxtLink
-            to="Login"
-            class="flex justify-endinline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-            >LogOut</NuxtLink>
-        </div>
-        </nav>
-        <div class="grid grid-cols-3 gap-5 mt-14">
-        <div
-            class="p-6 max-w-sm bg-red-800 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
-        >
-            <a href="#">
-            <h5
-                class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white"
-            >
-                Apple
-            </h5>
-            </a>
-            <div class="flex flex-1 justify-center p-9 text-4xl">{{ counter }}</div>
-            <div class="flex flex-1 justify-center">
-            <button
-                @click="add"
-                class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1"
-            >
-                +
-            </button>
-            <button
-                @click="remove"
-                class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1"
-            >
-                -
-            </button>
+        <Navbar />
+        <div class="">
+            <h6 class="text-center text-lg bg-gray-700 text-gray-100 mx-32 rounded-lg mb-5">Please choose items to your bucket</h6>
+            <div class="flex flex-row ">
+                <div class="basis-1/4 bg-red-400">
+                    <div>{{ apple.name }}</div>
+                    <div>{{ apple.count }}</div>
+                    <div><button v-on:click="add">+</button><button v-on:click="remove">-</button></div>
+                </div>
+                <div class="basis-1/4 bg-orange-500 h-80">
+                    <div>{{ orange.name }}</div>
+                    <div>{{ orange.count }}</div>
+                    <div><button v-on:click="add1">+</button><button v-on:click="remove1">-</button></div>
+                </div>
+                <div class="basis-1/4 bg-blue-200">
+                    <div>{{ grapes.name }}</div>
+                    <div>{{ grapes.count }}</div>
+                    <div><button v-on:click="add2" class="rounded-full">+</button><button
+                            v-on:click="remove2">-</button></div>
+                </div>
             </div>
-        </div>
-        <div
-            class="p-6 max-w-sm bg-yellow-500 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
-        >
-            <a href="#">
-            <h5
-                class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white"
-            >
-                Orange
-            </h5>
-            </a>
-            <div class="flex flex-1 justify-center p-9 text-4xl">
-            {{ orangecounter }}
-            </div>
-            <div class="flex flex-1 justify-center">
-            <button
-                @click="add1"
-                class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1"
-            >
-                +
-            </button>
-            <button
-                @click="remove1"
-                class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1"
-            >
-                -
-            </button>
-            </div>
-        </div>
-        <div
-            class="p-6 max-w-sm bg-blue-500 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
-        >
-            <a href="#">
-            <h5
-                class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white"
-            >
-                Grapes
-            </h5>
-            </a>
-            <div class="flex flex-1 justify-center p-9 text-4xl">
-            {{ grapecounter }}
-            </div>
-            <div class="flex flex-1 justify-center">
-            <button
-                @click="add2"
-                class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1"
-            >
-                +
-            </button>
-            <button
-                @click="remove2"
-                class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1"
-            >
-                -
-            </button>
-            </div>
-        </div>
-        </div>
-        <div class="flex justify-center items-center min-w-0 bg-white">
-        <div class="flex-1 max-w-4xl p-16">
-            <h2 class="text-center p-10 font-bold">Basket Stack</h2>
-            <div
-            class="col-span-2 text-center text-white p-4 pr-6 bg-orange-500 border-1-8 border-teal-400 rounded-md shadow-md space-y-2"
-            >
-            {{ basket }} Orange
-            </div>
-            <div
-            class="col-span-2 text-center text-white p-4 pr-6 bg-red-500 border-1-8 border-teal-400 rounded-md shadow-md space-y-2"
-            >
-            {{ basket }} Apple
-            </div>
-            <div
-            class="col-span-2 text-center text-white p-4 pr-6 bg-blue-500 border-1-8 border-teal-400 rounded-md shadow-md space-y-2"
-            >
-            {{ basket }} Grape
-            </div>
-        </div>
         </div>
         <div class="m-8">
-      <div>
-        <h4>Basket stack</h4>
-      </div>
-      <div>{{basket}}</div>
+            <div>
+                <h4>Basket stack</h4>
+            </div>
+            <div>{{ basket.join(",") }}</div><br />
+        </div>
     </div>
-    </div>
-    </template>
+</template>
 
     <script>
    export default {

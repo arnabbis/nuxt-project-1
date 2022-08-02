@@ -34,8 +34,8 @@
                 <h4 align="center"><b><u>Basket stack</u></b></h4>
             </div>
             <div>
-                <center>
-            <table class="w-64  items-center justify-center"><tr class="border-solid border-2 border-indigo-600 w-10" v-for="(basket, index) in basket" :key="index">
+            <center>
+            <table class="w-64  items-center justify-center"><tr class="border-solid border-2 border-indigo-600 w-10" v-for="(basket, index) in basket.slice().reverse()" :key="index">
             <td>{{basket}}</td>
             </tr></table>
             </center>

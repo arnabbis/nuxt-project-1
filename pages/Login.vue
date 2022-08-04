@@ -31,17 +31,22 @@ export default {
     data() {
         return {
             username: "",
-            password: ""
+            password: "",
+            permission:'',
+            per:''
         }
     },
     methods: {
         async login() {
+            let per;
             let result = await axios.get(
                 `http://localhost:3000/users?username=${this.username}&password=${this.password}`
             );
             if (result.status == 200 && result.data.length > 0) {
+               per=result.data[0].permission
                 this.$router.push({
-                    name: "bucket"
+                    name: "bucket",
+                    params:{per}
                 })
             } else {
                 alert("please enter correct username and password")

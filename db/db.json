@@ -2,16 +2,19 @@
   "users": [
     {
       "username": "arnab",
+      "permission":"none",
       "password": "test",
       "id": 1
     },
     {
       "username": "hayat",
+      "permission":"none",
       "password": "hayat@123",
       "id": 2
     },
     {
       "username": "admin",
+      "permission":"all",
       "password": "admin",
       "id": 3
     }

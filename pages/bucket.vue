@@ -37,7 +37,7 @@
       </div>
       <center>
      <table class="w-64 mx-20 items-cener justify-center"><tr class="border-solid border-2 border-indigo-600 w-10" v-for="(basket, index) in basket.slice().reverse()" :key="index">
-    <td :class="classe[basket]">{{basket}}</td>
+    <td :class="classes[basket]">{{basket}}</td>
 </tr></table>
       </center>
     </div>
@@ -68,7 +68,7 @@ export default {
         color:""
       },
       basket:[],
-      classe:{
+      classes:{
         "Apple":'apple',
         'Orange':"orange",
         "Grapes":"grapes"

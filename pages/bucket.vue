@@ -11,7 +11,7 @@
     <div class="m-8">
      <h6 align="center"><b><u>Please choose items to your bucket</u></b></h6>
      <div class="grid grid-cols-3 gap-5 mt-14">
-      <div class="p-6 max-w-sm bg-red-800 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 apple">
+      <div class="p-6  max-w-sm bg-red-800 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700  apple">
         <div class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">{{apple.name}}</div>
         <div class="flex flex-1 justify-center p-9 text-4xl">{{apple.count}}</div>
         <div class="flex flex-1 justify-center"><button @click="per? add() : al()" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">+</button><button @click="per? remove() : al()" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">-</button></div>
@@ -20,13 +20,13 @@
       <div class="p-6 max-w-sm bg-red-800 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 orange">
         <div class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">{{orange.name}}</div>
         <div class="flex flex-1 justify-center p-9 text-4xl" >{{orange.count}}</div>
-        <div class="flex flex-1 justify-center"><button @click="per? add1() : al()" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">+</button><button @click="per? remove1() : al2()" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">-</button></div>
+        <div class="flex flex-1 justify-center"><button @click="per? add1() : al()" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">+</button><button @click="per? remove1() : al()" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">-</button></div>
 
       </div>
-      <div class="p-6 max-w-sm bg-red-800 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 grapes">
+      <div class="p-6 max-w-sm bg-red-800 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 grape">
         <div class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">{{grapes.name}}</div>
         <div class="flex flex-1 justify-center p-9 text-4xl"  >{{grapes.count}}</div>
-        <div class="flex flex-1 justify-center"><button @click="per? add2() : al()" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">+</button><button @click="per? remove2() : al2()" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">-</button></div>
+        <div class="flex flex-1 justify-center"><button @click="per? add2() : al()" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">+</button><button @click="per? remove2() : al()" class="py-2 px-4 rounded-full h-14 w-14 bg-white text-black mx-1">-</button></div>
 
       </div>
      </div>
@@ -36,7 +36,7 @@
         <h4 align="center"><b>Basket stack</b></h4>
       </div>
       <center>
-     <table class="w-64 mx-20 items-cener justify-center"><tr class="border-solid border-2 border-indigo-600 w-10" v-for="(basket, index) in basket.slice().reverse()" :key="index">
+     <table class="w-64 mx-20 items-cener text-center justify-center"><tr class="border-solid border-2 border-indigo-600 w-10" v-for="(basket, index) in basket.slice().reverse()" :key="index">
     <td :class="classes[basket]">{{basket}}</td>
 </tr></table>
       </center>
@@ -55,23 +55,20 @@ export default {
       "apple":{
         name:"Apple",
         count:10,
-        color:""
       },
       "orange":{
         name:"Orange",
         count:10,
-        color:""
       },
       "grapes":{
         name:"Grapes",
         count:10,
-        color:""
       },
       basket:[],
       classes:{
         "Apple":'apple',
         'Orange':"orange",
-        "Grapes":"grapes"
+        "Grapes":"grape"
     },
     per:false,
     }
@@ -90,7 +87,7 @@ export default {
   methods:{
  
     add(){
-        if(this.apple.count>0){
+        if(this.apple.count!==0){
       this.apple.count = this.apple.count === 0 ? 0 : this.apple.count - 1;
       this.basket.push(this.apple.name)
         }
@@ -108,7 +105,7 @@ export default {
         }
     },
     add1(){
-        if(this.orange.count>0){
+        if(this.orange.count!==0){
       this.orange.count = this.orange.count === 0 ? 0 : this.orange.count - 1;
       this.basket.push(this.orange.name)
         }
@@ -126,7 +123,7 @@ export default {
         }
     },
     add2(){
-        if(this.grapes.count>0){
+        if(this.grapes.count!==0){
       this.grapes.count = this.grapes.count === 0 ? 0 : this.grapes.count - 1;
       this.basket.push(this.grapes.name)
         }
@@ -158,7 +155,7 @@ export default {
 .orange{
     background-color: rgb(255, 0, 0);
 }
-.grapes{
+.grape{
     background-color: rgb(200, 255, 0);
 }
 </style>
